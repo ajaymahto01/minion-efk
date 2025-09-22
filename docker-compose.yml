@@ -5,7 +5,8 @@ services:
     environment:
       - discovery.type=single-node
       - ES_JAVA_OPTS=-Xms512m -Xmx512m
-      - ELASTIC_PASSWORD=elastic
+      - ELASTIC_USERNAME=kibana
+      - ELASTIC_PASSWORD=kibana
     ports:
       - "9200:9200"
     healthcheck:
@@ -22,8 +23,8 @@ services:
       - "5601:5601"
     environment:
         - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
-        - ELASTICSEARCH_USERNAME=elastic
-        - ELASTICSEARCH_PASSWORD=elastic
+        - ELASTICSEARCH_USERNAME=kibana
+        - ELASTICSEARCH_PASSWORD=kibana
     depends_on:
       - elasticsearch
 
