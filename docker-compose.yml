@@ -38,8 +38,9 @@ services:
       - elasticsearch
       - nginx
     volumes:
-      - ./fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf:ro
-      - ./nginx-logs:/var/log/nginx:ro
+        - ./fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf:ro
+        - ./parsers.conf:/fluent-bit/etc/parsers.conf:ro
+        - ./nginx-logs:/var/log/nginx:ro
     environment:
       - FLUENT_ELASTICSEARCH_HOST=elasticsearch
       - FLUENT_ELASTICSEARCH_PORT=9200
